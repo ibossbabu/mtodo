@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
+  "todo/cmd/customize"
 )
 
 func input() *tview.InputField {
@@ -11,21 +12,11 @@ func input() *tview.InputField {
 	return inputfield
 }
 
-func textView() *tview.TextView {
-	text := tview.NewTextView().
-		SetTextColor(tcell.ColorHotPink).
-		SetTextAlign(tview.AlignCenter)
-	return text
-}
 
 func main() {
+  text := customize.TextView()
 	app := tview.NewApplication()
 	inputfield := input()
-	text := textView()
-	text.SetBorder(true)
-	text.SetTitle("TODO LIST")
-	text.SetBackgroundColor(tcell.ColorBlack)
-	text.SetBorderColor(tcell.ColorRoyalBlue)
 	text.SetDrawFunc(func(screen tcell.Screen, x int, y int, width int, height int) (int, int, int, int) {
 		// Draw a horizontal line across the middle of the box
 		centerY := y + height/5
@@ -40,7 +31,7 @@ func main() {
 	inputfield.SetDoneFunc(func(key tcell.Key) {
  if key == tcell.KeyEnter {
             currentText := text.GetText(false) // Get the current text without regions
-            newText := currentText + "\n" + inputfield.GetText()
+            newText := currentText + "\n" + "\n"+ inputfield.GetText()
             text.SetText(newText) // Update the TextView with the updated text
             inputfield.SetText("") // Clear the input field
         }
