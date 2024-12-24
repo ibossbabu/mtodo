@@ -12,13 +12,7 @@ func Table() *tview.Table {
 			tcell.StyleDefault.
 				Background(tcell.ColorRoyalBlue).
 				Foreground(tcell.ColorWhite),
-		).
-		SetDoneFunc(func(key tcell.Key) {
-			if key == tcell.KeyEscape {
-				return
-			}
-		})
-
+		)
 	tbl.SetBorder(true)
 	tbl.SetBorderColor(tcell.ColorRoyalBlue)
 	tbl.SetTitle("TODO LIST")
