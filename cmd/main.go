@@ -24,44 +24,39 @@ func main() {
 	updateMode := func(mode string) {
 		text.SetText(mode)
 	}
-checkboxCell := func() *tview.TableCell {
-    checkbox := " " 
-    return tview.NewTableCell(checkbox).
-        SetAlign(tview.AlignCenter).
-        SetSelectable(true)
-}
-
-inputfield.SetDoneFunc(func(key tcell.Key) {
-    if key == tcell.KeyEnter {
-        newText := inputfield.GetText()
-        if newText != "" {
-            // Add checkbox in column 0
-            tbl.SetCell(row, 0, checkboxCell())
-            // Add text in column 1 (without checkbox prefix)
-            cell := tview.NewTableCell(newText).
-                SetExpansion(1).
-                SetAlign(tview.AlignLeft)
-            tbl.SetCell(row, 1, cell)
-            row++
-            inputfield.SetText("")
-            tbl.Select(row-1, 0)
-        }
-    }
-})
-
-// Handle checkbox toggling
-tbl.SetSelectedFunc(func(row, col int) {
-    if col == 0 { // Only toggle if checkbox column is selected
-        cell := tbl.GetCell(row, 0)
-        if cell.Text == " " {
-            cell.SetText("󰄳 ")
-        } else {
-            cell.SetText(" ")
-        }
-        tbl.SetCell(row, 0, cell)
-    }
-}) 
-flex := tview.NewFlex().
+	checkboxCell := func() *tview.TableCell {
+		checkbox := " "
+		return tview.NewTableCell(checkbox).
+			SetAlign(tview.AlignCenter).
+			SetSelectable(true)
+	}
+	inputfield.SetDoneFunc(func(key tcell.Key) {
+		if key == tcell.KeyEnter {
+			newText := inputfield.GetText()
+			if newText != "" {
+				tbl.SetCell(row, 0, checkboxCell())
+				cell := tview.NewTableCell(newText).
+					SetExpansion(1).
+					SetAlign(tview.AlignLeft)
+				tbl.SetCell(row, 2, cell)
+				row++
+				inputfield.SetText("")
+				tbl.Select(row-1, 0)
+			}
+		}
+	})
+	tbl.SetSelectedFunc(func(row, col int) {
+		if col == 0 {
+			cell := tbl.GetCell(row, 0)
+			if cell.Text == " " {
+				cell.SetText("󰄳 ")
+			} else {
+				cell.SetText(" ")
+			}
+			tbl.SetCell(row, 0, cell)
+		}
+	})
+	flex := tview.NewFlex().
 		SetDirection(tview.FlexRow).
 		AddItem(tbl, 0, 6, false).
 		AddItem(text, 0, 1, false).
