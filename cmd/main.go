@@ -39,7 +39,6 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error loading tasks: %v\n", err)
 	} else {
 		tasks = loadedTasks
-		// Populate table with loaded tasks
 		for _, task := range tasks {
 			checkbox := " "
 			if task.Checked {

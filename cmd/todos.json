@@ -1,0 +1,38 @@
+[
+    {
+        "text": "Hello",
+        "checked": false
+    },
+    {
+        "text": "go to school",
+        "checked": false
+    },
+    {
+        "text": "jelly",
+        "checked": false
+    },
+    {
+        "text": "hippo",
+        "checked": false
+    },
+    {
+        "text": "hello",
+        "checked": true
+    },
+    {
+        "text": "what",
+        "checked": true
+    },
+    {
+        "text": "take a shower",
+        "checked": false
+    },
+    {
+        "text": "qqqqqqq",
+        "checked": false
+    },
+    {
+        "text": "qqq",
+        "checked": false
+    }
+]
