@@ -12,5 +12,6 @@ func TextView() *tview.TextView {
 	text.SetBackgroundColor(tcell.ColorBlack)
 	text.SetBorder(true)
 	text.SetBorderColor(tcell.ColorRoyalBlue)
+  //text.SetBorderPadding()
 	return text
 }

@@ -7,21 +7,15 @@ import (
 
 func Table() *tview.Table {
 	tbl := tview.NewTable().
-		SetSelectable(true, false).
-		SetSelectedStyle(
-			tcell.StyleDefault.
-				Background(tcell.ColorRoyalBlue).
-				Foreground(tcell.ColorWhite),
-		)
+		SetSelectable(true, false)
 	tbl.SetBorder(true)
 	tbl.SetBorderColor(tcell.ColorRoyalBlue)
 	tbl.SetTitle("TODO LIST")
-
+  tbl.SetTitleColor(tcell.ColorLime)
 	tbl.SetSelectedStyle(
 		tcell.StyleDefault.
-			Background(tcell.ColorDarkSlateGrey).
-			Foreground(tcell.ColorWhite),
+			Background(tcell.ColorDarkSlateGrey). //  highlight color
+	    Foreground(tcell.ColorPaleGoldenrod),    //highlight text color 
 	)
-
 	return tbl
 }
