@@ -1,5 +1,5 @@
 module todo
-s
+
 go 1.23.4
 
 require (
