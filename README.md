@@ -2,6 +2,7 @@
 
 **Todo_list:** This is my first project using GO.
 
+![Screenshot](todo.gif)
 ## Usage
 
 - **VISUAL MODE:** Press 'v'. You can scroll using vim motion 'j' to go down 'h' to go up or arrow key.
